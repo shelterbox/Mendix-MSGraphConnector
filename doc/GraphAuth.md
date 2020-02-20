@@ -114,7 +114,7 @@ Configuration steps
 	b) Value: "=lq=EM5C2RqR=y0RBIRBcoh:WOhZSB3b"
   6. Configure application
 	Name				= "MS Graph Demo"
-	Client Id			= "dcce42c1-a6fa-4a92-a5c0-5f89a4ff1637
+	Client Id			= "dcce42c1-a6fa-4a92-a5c0-5f89a4ff1637"
 	Secret			= "=lq=EM5C2RqR=y0RBIRBcoh:WOhZSB3b"
 	Redirect Url		= "http://localhost:8080/msgraph/callback"
 	MSGraph User Identifier	= "mail"
