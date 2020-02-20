@@ -44,45 +44,19 @@
 		<div class="message">
 			<div class="message-content">
 				<h1>An error occured!</h1>
+				<h2>(Application Error)</h2>
 				<p>If this is the first time you have seen this message, please <a href="/">try again</a>.</p>
-				<p>If the issue persists, please contact the <a href="mailto:ITHelpDesk@shelterbox.org">IT Helpdesk</a>.</p>
-				<script type="text/javascript">
-				<!--
-					function getQueryParams(qs) {
-					    qs = qs.split('+').join(' ');
-
-					    var params = {},
-						  tokens,
-						  re = /[?&]?([^=]+)=([^&]*)/g;
-
-					    while (tokens = re.exec(qs)) {
-						  params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
-					    }
-
-					    return params;
-					}
-				//-->
-				</script>
-				<div id="errorName" class="errorName">
-					<script type="text/javascript">
-					<!--
-						var query = getQueryParams(document.location.search);
-						if( typeof query.error != 'undefined' ) {
-							document.getElementById("errorName").innerHTML = query.error;	
-						}
-					//-->
-					</script>
-				</div>
-				<div id="errorDescription" class="errorDescription">
-					<script type="text/javascript">
-					<!--
-						var query = getQueryParams(document.location.search);
-						if( typeof query.error_description != 'undefined' ) {
-							document.getElementById("errorDescription").innerHTML = query.error_description;
-						}
-					//-->
-					</script>
-				</div>
+				<p>If the issue persists, please contact the <a href="
+					mailto:ITHelpDesk@shelterbox.org?subject=Application Error during single sign on
+						&amp;body=It may help us to diagnose you issue more quickly if you could answer the following questions...
+%0A%0A    Are you accessing the application via a link and if so where is the link (try to be specific)? :
+%0A%0A    What is the address of the application you are trying to log into? :
+%0A%0A    What is the ShelterBox email address that you are using to log in? :
+%0A%0A    How many times have you tried to log in (and got this or a similar error page)? :
+%0A%0A    What computer operating system (and version) are you using (e.g. Windows 10 or macOS Mojave)? :
+%0A%0A    What browser (and version) are you using (e.g. Edge 44, Chrome 80 or Safari 13)? :
+%0A%0A    Have you tried any other computer or browser and if so, which ones? :
+%0A%0A">IT Helpdesk</a>.</p>
 			</div>
 		</div>
 	</body>
