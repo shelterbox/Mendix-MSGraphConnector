@@ -474,6 +474,19 @@ public class Microflows
 			throw new MendixRuntimeException(e);
 		}
 	}
+	public static void setupWizard_Step1(IContext context, msgraphconnector.proxies.Application _application)
+	{
+		try
+		{
+			Map<java.lang.String, Object> params = new HashMap<java.lang.String, Object>();
+			params.put("Application", _application == null ? null : _application.getMendixObject());
+			Core.execute(context, "MSGraphConnector.SetupWizard_Step1", params);
+		}
+		catch (CoreException e)
+		{
+			throw new MendixRuntimeException(e);
+		}
+	}
 	public static void setupWizard_Step2(IContext context)
 	{
 		try

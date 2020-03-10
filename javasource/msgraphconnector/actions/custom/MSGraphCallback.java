@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by skruger on 6/26/2017.
@@ -60,7 +61,7 @@ public class MSGraphCallback {
         	Core.getLogger("MSGraph").error("Exception occurred while processing request "+ex);
             new ErrorHandler().processErrorHandler(response, MSGRAPHDIR, SOCKETHTML);
             response.sendError("Exception occurred while processing request");
-        	response.setStatus(IMxRuntimeResponse.SEE_OTHER, "Location:/");
+        	response.setStatus(303, "Location:/");
         } catch (Exception ex) {
         	Core.getLogger("MSGraph").error("Exception occurred while processing request "+ex);
             new ErrorHandler().processErrorHandler(response, MSGRAPHDIR, ERRORHTML);
@@ -73,8 +74,10 @@ public class MSGraphCallback {
      * First the state of the request is checked against the value in the cookie
      * The the code is exchanged for an Access Token
      * The Access Token is used to retrieve information on behalf of the user with MS Graph
+     * @throws ExecutionException 
+     * @throws InterruptedException 
      */
-    private void doCallbackService(IMxRuntimeRequest request, IMxRuntimeResponse response) throws ServletException, IOException, CoreException {
+    private void doCallbackService(IMxRuntimeRequest request, IMxRuntimeResponse response) throws ServletException, IOException, CoreException, InterruptedException, ExecutionException {
         //HttpServletResponse servletResponse = response.getHttpServletResponse();
         HttpServletRequest servletRequest = request.getHttpServletRequest();
         if (request.getParameter("error") != null) {
