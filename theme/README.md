@@ -1,66 +1,96 @@
-# Mendix UI Framework
-#### Theme Mendix
-This is one of the default themes that uses the Mendix UI Framework to quickly create a beautiful app with Mendix. The Mendix UI Framework consist of a Sass framework that compiles CSS files and all other files you need to build a complete Mendix app!
+# For Atlas 3 UI go [here](https://github.com/mendix/widgets-resources/tree/master/packages/theming/atlas)
 
-### Theme folder structure
-The theme folder consists of the default HTML pages, Sass, CSS and resources needed to style your application.
+We are always improving our code base with new technologies. Thus we moved our new atlas 3 theme package to our [monorepo](https://github.com/mendix/widgets-resources)
 
-#### Styles / Sass
-In the Sass folder you will notice two main folders, custom and library. The library folder houses the complete Mendix UI Framework and the custom folder is a duplication of the library folder. We advice to do *all customization* in the custom folder.
+## Mendix Atlas 2 UI
 
-##### Library Folder
-We created a framework so our users have a clear understanding what Mendix is capable of. The library folder structure is as follows:
+Mendix Atlas UI is the foundation of making beautiful apps with Mendix. For more information about the framework go to
+[here](https://atlas.mendix.com/).
 
-- Base
-- Building Blocks
-- Components
-- Layouts
-- Mobile
+### Useful tools
+- [Compile SCSS to CSS with Calypso](https://docs.mendix.com/howto/front-end/calypso)
+- [Visually update the design properties for web and native](https://jeltemx.github.io/mendix-dpt/)
+- [Inspect and update styles in the Make it Native app with the React Native Debugger](https://docs.mendix.com/howto/mobile/native-debug)
 
-###### Base
-The base folder holds the *architecture* for our framework. Here we have our *mixins*, *variables* and *resets*. The variables is what makes our framework, which holds all global variables for the project (for typography, color schemes, and so on).
+#### Structure
 
-###### Components
-This directory contains all kind of basic components like a datagrid, buttons, label, form, listview, or anything along those lines. They have distinct properties and can't be broken down further without losing their meaning.
+Mendix is capable of creating beautiful and user-friendly UI. Our Atlas UI framework demonstrates some of its
+possibilities. Here you will find a basic overview of our framework.
 
-###### Building Blocks
-Building blocks are combined components/widgets. For example *cards* or *headers* are building blocks. A building block could be an image, title and a button built together.
+```
+theme/
+├── styles/
+|   ├── native/
+|   |   ├── ts/     // Will not be in the Atlas UI Resources module
+|   |   ├── js/
+|   |       ├── app/
+|   |       |   ├── _custom-variables.js
+|   |       |   └── _custom.js
+|   |       ├── core/
+|   |       |   ├── base/
+|   |       |   ├── helpers/
+|   |       |   ├── widgets/
+|   |       |   | _variables.js
+|   |       |   └── manifest.json
+|   |       ├── ui_resources/
+|   |       |   └── atlas_ui_resources/
+|   |       |       ├── buildingblocks/
+|   |       |       └── layouts/
+|   |       └── main.js
+|   └── web/
+|       ├── css/
+|       │   ├── * all output files
+|       └── sass/
+|           ├── app/
+|           |   ├── _custom-variables.scss
+|           |   └── _custom.scss
+|           ├── core/
+|           |   ├── _legacy/
+|           |   ├── base/
+|           |   ├── helpers/
+|           |   ├── widgets/
+|           |   ├── widgetscustom/
+|           |   |   _variables.scss
+|           |   └── manifest.json
+|           ├── ui_resources/
+|           |   └── atlas_ui_resources/
+|           |       ├── buildingblocks/
+|           |       └── layouts/
+|           └── main.scss
+├── * index files
+├── * assets
+├── * settings*.json (Design Properties)
+└── styles.js
+```
 
-###### Layouts
-The layout directory contains some styles for the main sections of the layout (topbar, sidebar, footer and so on).
+#### App
 
-###### Mobile
-The mobile directory include specific styling for your tablet or phone pages and widgets. This is useful to target only mobile use cases.
+The app folder contains all custom styling. We recommend users to only use this directory for any custom styling.
 
-##### Custom Folder
-The custom folder is a duplication from the library folder. We advice all of our users to make their customizations in this folder so you can always go back to the library. We made sure you are able to easily find all the elements and resources needed to style an Mendix application.
+When you want to customize something, you should first check if you can accomplish your goal by changing variables.
+These variables can be found in _styles/web/sass/core/variables.scss_ or _styles/native/core/variables.js_. If you want
+to change any core variable, copy it to _../app/\_custom-variables.(scss|js)_ and change it there. It will then
+overwrite the core variable. This will make updating Atlas UI much easier in the future.
 
-###### Custom Variables file
-It's possible to do almost all your default styling in the *_custom-variables* file. In this file you are able to change your default colors, layouts, spacing, typography, widgets and more.
+#### Core
 
+The core folder is the heart of Atlas UI. This folder includes base styling, widget styling & additional helper classes.
+The core widget styling is split in to two parts. The widget folder includes the default widget styling, as it will look
+out of the box. The helpers folder will include design properties and extra classes to change that default styling.
 
-#### Styles / CSS
-This folder includes the compiled files from Sass. It contains the custom and lib CSS files. You are able to adjust only the CSS files without using Sass. However, when you are going to use Sass the CSS files will be overwritten by the Sass compiler.
+#### UI Resources
 
-#### Resources
-Resources combine startup images and icons to support Windows, Android and Apple devices. You would only need to use these files if you want your users to bookmark your app to their phones since Mendix supports hybrid applications in the Mendix platform. 
+THe UI Resources folder will contain any styling related to Building Blocks, Page Templates and Layouts.
 
-#### Other files
+Building blocks are created with Widgets. For example _cards_ or _headers_ are building blocks. A building block could
+be an image, a title, and a button, assembled together into one UI block.
 
-###### components.json
-This file is needed for creating hybrid apps with Mendix. Read more about this [here](https://world.mendix.com/display/refguide5/Customizing+Hybrid+Mobile+Apps).
-###### config.rb
-Sass/Compass compilers need a config file called config.rb in which the settings of the project are defined. The compiler will read this and use the settings when compiling your css.
+Page Templates are created with Building Blocks and Widgets. Page Templates are an example of how a page could look
+like.
 
-### Where to place the theme files
-The theme has to be added to the following folder */project-directory/theme*. Make sure to place all the files in the */theme/* folder directly. When you use the Mendix App Store the theme will be automatically placed in the correct folder.
+Layouts are created with widgets. They are mainly used for navigation or user experiences which need to be consistent
+between pages.
 
-### Useful links
-- [Live theme demo](https://ux.mendix.com/index-theme-mendix.html)
-- [Mendix UI Framework Website](https://ux.mendix.com/)
-- [Blog article about Mendix UI Framework](https://www.mendix.com/blog/the-eye-catching-mendix-ui-framework/)
-- [Create a custom theme with the Mendix UI Framework](https://world.mendix.com/display/howto50/Create+a+custom+theme+with+the+Mendix+UI+Framework)
-
-### License
+## License
 
 MIT

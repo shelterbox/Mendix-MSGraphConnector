@@ -7,9 +7,6 @@ public class UserActionsRegistrar
   public void registerActions(IActionRegistrator registrator)
   {
     registrator.bundleComponentLoaded();
-    registrator.registerUserAction(appcloudservices.actions.GenerateRandomPassword.class);
-    registrator.registerUserAction(appcloudservices.actions.LogOutUser.class);
-    registrator.registerUserAction(appcloudservices.actions.StartSignOnServlet.class);
     registrator.registerUserAction(communitycommons.actions.Base64Decode.class);
     registrator.registerUserAction(communitycommons.actions.Base64DecodeToFile.class);
     registrator.registerUserAction(communitycommons.actions.Base64Encode.class);
@@ -20,15 +17,13 @@ public class UserActionsRegistrar
     registrator.registerUserAction(communitycommons.actions.copyAttributes.class);
     registrator.registerUserAction(communitycommons.actions.CreateLogNode.class);
     registrator.registerUserAction(communitycommons.actions.DateTimeToLong.class);
-    registrator.registerUserAction(communitycommons.actions.DecryptString.class);
     registrator.registerUserAction(communitycommons.actions.DeepClone.class);
     registrator.registerUserAction(communitycommons.actions.Delay.class);
     registrator.registerUserAction(communitycommons.actions.deleteAll.class);
     registrator.registerUserAction(communitycommons.actions.DuplicateFileDocument.class);
     registrator.registerUserAction(communitycommons.actions.DuplicateImageDocument.class);
-    registrator.registerUserAction(communitycommons.actions.encryptMemberIfChanged.class);
-    registrator.registerUserAction(communitycommons.actions.EncryptString.class);
     registrator.registerUserAction(communitycommons.actions.EndTransaction.class);
+    registrator.registerUserAction(communitycommons.actions.EnumerationFromString.class);
     registrator.registerUserAction(communitycommons.actions.EscapeHTML.class);
     registrator.registerUserAction(communitycommons.actions.executeMicroflowAsUser.class);
     registrator.registerUserAction(communitycommons.actions.executeMicroflowAsUser_1.class);
@@ -42,6 +37,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(communitycommons.actions.executeUnverifiedMicroflowInBatches.class);
     registrator.registerUserAction(communitycommons.actions.FileDocumentFromFile.class);
     registrator.registerUserAction(communitycommons.actions.FileFromFileDocument.class);
+    registrator.registerUserAction(communitycommons.actions.GenerateHMAC_SHA256.class);
     registrator.registerUserAction(communitycommons.actions.GenerateHMAC_SHA256_hash.class);
     registrator.registerUserAction(communitycommons.actions.GetApplicationUrl.class);
     registrator.registerUserAction(communitycommons.actions.GetCFInstanceIndex.class);
@@ -53,6 +49,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(communitycommons.actions.GetImageDimensions.class);
     registrator.registerUserAction(communitycommons.actions.GetIntFromDateTime.class);
     registrator.registerUserAction(communitycommons.actions.getLastChangedByUser.class);
+    registrator.registerUserAction(communitycommons.actions.GetModelVersion.class);
     registrator.registerUserAction(communitycommons.actions.getOriginalValueAsString.class);
     registrator.registerUserAction(communitycommons.actions.GetRuntimeVersion.class);
     registrator.registerUserAction(communitycommons.actions.getTypeAsString.class);
@@ -61,6 +58,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(communitycommons.actions.HTMLToPlainText.class);
     registrator.registerUserAction(communitycommons.actions.IsInDevelopment.class);
     registrator.registerUserAction(communitycommons.actions.IsStringSimplified.class);
+    registrator.registerUserAction(communitycommons.actions.ListTop.class);
     registrator.registerUserAction(communitycommons.actions.LongToDateTime.class);
     registrator.registerUserAction(communitycommons.actions.memberHasChanged.class);
     registrator.registerUserAction(communitycommons.actions.MergeMultiplePdfs.class);
@@ -77,7 +75,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(communitycommons.actions.refreshClassByObject.class);
     registrator.registerUserAction(communitycommons.actions.RegexQuote.class);
     registrator.registerUserAction(communitycommons.actions.RegexReplaceAll.class);
-    registrator.registerUserAction(communitycommons.actions.RegexTest.class);
+    registrator.registerUserAction(communitycommons.actions.RemoveEnd.class);
     registrator.registerUserAction(communitycommons.actions.retrieveURL.class);
     registrator.registerUserAction(communitycommons.actions.RunMicroflowAsyncInQueue.class);
     registrator.registerUserAction(communitycommons.actions.StartTransaction.class);
@@ -111,7 +109,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(stringutils.actions.GenerateHMAC_SHA256_hash.class);
     registrator.registerUserAction(stringutils.actions.GenerateHMAC_SHA256_HexDigest.class);
     registrator.registerUserAction(stringutils.actions.Hash.class);
-    registrator.registerUserAction(stringutils.actions.HTMLEncode.class);
+    registrator.registerUserAction(stringutils.actions.HTMLEscape.class);
     registrator.registerUserAction(stringutils.actions.HTMLToPlainText.class);
     registrator.registerUserAction(stringutils.actions.RandomHash.class);
     registrator.registerUserAction(stringutils.actions.RandomString.class);
@@ -123,7 +121,10 @@ public class UserActionsRegistrar
     registrator.registerUserAction(stringutils.actions.StringLength.class);
     registrator.registerUserAction(stringutils.actions.StringRightPad.class);
     registrator.registerUserAction(stringutils.actions.StringTrim.class);
-    registrator.registerUserAction(stringutils.actions.URLEncode.class);
+    registrator.registerUserAction(stringutils.actions.SubstringAfter.class);
+    registrator.registerUserAction(stringutils.actions.SubstringAfterLast.class);
+    registrator.registerUserAction(stringutils.actions.SubstringBefore.class);
+    registrator.registerUserAction(stringutils.actions.SubstringBeforeLast.class);
     registrator.registerUserAction(stringutils.actions.XSSSanitize.class);
     registrator.registerUserAction(system.actions.VerifyPassword.class);
   }
